@@ -6,11 +6,21 @@ import Image from 'next/image'
 import Link from 'next/link' // ✅ Missing import fixed
 import { getRandomInterviewCover } from '@/lib/utils'
 import DisplayTechIcon from './DisplayTechIcon'
+import id from 'zod/v4/locales/id.cjs'
 
-// Assuming the InterviewCardProps and Feedback types are defined elsewhere
+interface InterviewCardProps {
+  id: string;
+  userId: string;
+  role: string;
+  type: string;
+  techstack: string[];
+  createdAt: string | Date;
+}
+
+// Assuming the Feedback type is defined elsewhere
 
 const InterviewCard = ({
-  interviewId,
+  id,
   userId,
   role,
   type,
@@ -58,7 +68,9 @@ const InterviewCard = ({
           <p>Tech Icon</p>
           <DisplayTechIcon techStack={techstack}></DisplayTechIcon>
           <Link
-            href={feedback ? `/interview/${interviewId}/feedback` : `/interview/${interviewId}`}
+            href={feedback ?
+              `/interview/${id}/feedback` :
+              `/interview/${id}`}
             className="btn-primary"
           >
             {feedback ? 'Check Feedback' : 'View Interview'}

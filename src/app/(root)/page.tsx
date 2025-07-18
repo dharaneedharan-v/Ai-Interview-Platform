@@ -1,3 +1,4 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import Link from 'next/dist/client/link'
 import Image from 'next/image'

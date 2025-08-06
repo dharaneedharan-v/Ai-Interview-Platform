@@ -2,7 +2,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getRandomInterviewCover } from "@/lib/utils";
 import { getCurrentUser } from "@/lib/actions/auth.action";
-import { getFeedbackByInterviewId, getInterviewById } from "@/lib/actions/general.actions";
+import { getInterviewById } from "@/lib/actions/general.actions";
 import DisplayTechIcons from "../../../../../components/DisplayTechIcon";
 import Agent from "../../../../../components/Agent";
 
@@ -13,11 +13,6 @@ const InterviewDetails = async ({ params }: RouteParams) => {
 
   const interview = await getInterviewById(id);
   if (!interview) redirect("/");
-
-  const feedback = await getFeedbackByInterviewId({
-    interviewId: id,
-    userId: user?.id!,
-  });
 
   return (
     <>
@@ -48,7 +43,6 @@ const InterviewDetails = async ({ params }: RouteParams) => {
         interviewId={id}
         type="interview"
         questions={interview.questions}
-        feedbackId={feedback?.id}
       />
     </>
   );

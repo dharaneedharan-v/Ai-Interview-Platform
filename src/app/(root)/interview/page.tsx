@@ -1,7 +1,3 @@
-// import React from 'react'
-// import Agent from '../../../../components/Agent'
-// import { getCurrentUser } from '@/lib/actions/auth.action'
-
 import { getCurrentUser } from "@/lib/actions/auth.action";
 import { getInterviewById } from "@/lib/actions/general.actions";
 import { redirect } from "next/navigation";
@@ -10,32 +6,6 @@ import Image from "next/image";
 import { getRandomInterviewCover } from "@/lib/utils";
 import Agent from "../../../../components/Agent";
 
-
-
-// const Page = async () => {
-//     const user = await getCurrentUser();
-
-//     return (
-//         <>
-//             <h3>Interview Generation</h3>
-
-//             <Agent userName={user?.name ?? ''} userId={user?.id} type="generate" />
-
-//         </>
-//     )
-// }
-// export default Page
-
-// import Agent from "@/components/Agent";
-// import { getCurrentUser } from "@/lib/actions/auth.action";
-// import Agent from "../../../../components/Agent";
-// import {getInterviewById} from "@/lib/actions/general.action";
-// import {redirect} from "next/navigation";
-// import Image from "next/image";
-// import {getRandomInterviewCover} from "@/lib/utils";
-// import DisplayTechIcons from "@/components/DisplayTechIcons";
-// import Agent from "@/components/Agent";
-// import {getCurrentUser} from "@/lib/actions/auth.action";
 
 const Page = async ({ params }: RouteParams) => {
     const { id } = await params;
